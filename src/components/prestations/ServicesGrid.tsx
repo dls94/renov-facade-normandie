@@ -1,27 +1,32 @@
+import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 
 const services = [
   {
     number: "01",
     title: "Ravalement de façade",
+    slug: "ravalement-de-facade",
     description:
       "Redonnez une nouvelle vie à votre façade grâce à un ravalement adapté à votre bâtiment.",
   },
   {
     number: "02",
     title: "Isolation extérieure",
+    slug: "isolation-exterieur",
     description:
       "Améliorez le confort et les performances de votre habitat grâce à l'isolation thermique par l'extérieur.",
   },
   {
     number: "03",
     title: "Terrasse en résine",
+    slug: "terrasse-en-resine",
     description:
       "Une solution esthétique, résistante et durable pour aménager ou rénover vos extérieurs.",
   },
   {
     number: "04",
     title: "Gouttières",
+    slug: "gouttieres",
     description:
       "Installation et rénovation de vos gouttières pour assurer une bonne évacuation des eaux de pluie.",
   },
@@ -49,8 +54,9 @@ export function ServicesGrid() {
         {/* Services */}
         <div className="grid border-t border-[#071522]/10 md:grid-cols-2">
           {services.map((service) => (
-            <article
+            <Link
               key={service.number}
+              href={`/prestations/${service.slug}`}
               className="group relative border-b border-[#071522]/10 p-7 md:odd:border-r md:p-9 lg:p-10"
             >
               <div className="flex items-start justify-between gap-6">
@@ -68,7 +74,7 @@ export function ServicesGrid() {
               <p className="mt-5 max-w-lg text-base leading-7 text-zinc-500">
                 {service.description}
               </p>
-            </article>
+            </Link>
           ))}
         </div>
       </div>
