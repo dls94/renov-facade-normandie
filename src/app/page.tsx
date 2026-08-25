@@ -3,6 +3,8 @@ import { Hero } from "@/components/home/Hero";
 import { Services } from "@/components/home/Services";
 import { Projects } from "@/components/home/Projects";
 import { Experience } from "@/components/home/Experience";
+import { Benefits } from "@/components/home/Benefits";
+import { Contact } from "@/components/home/Contact";
 
 export default function Home() {
   return (
@@ -13,7 +15,9 @@ export default function Home() {
         <Hero />
         <Services />
         <Projects />
-        <Experience/>
+        <Experience />
+        <Benefits />
+        <Contact />
       </main>
     </div>
   );
