@@ -1,5 +1,8 @@
 import { notFound } from "next/navigation";
 import { ArrowUpRight } from "lucide-react";
+import { ResinAdvantages } from "@/components/prestations/ResinAdvantages";
+import { ServiceProjects } from "@/components/prestations/ServiceProjects";
+import { ServiceKnowHow } from "@/components/prestations/ServicesKnowHow";
 
 const services = {
   "ravalement-de-facade": {
@@ -64,51 +67,11 @@ export default async function ServicePage({
         </div>
       </section>
 
-      <section className="bg-white px-6 py-20 sm:py-24 lg:py-28">
-        <div className="mx-auto max-w-7xl">
-          <div className="max-w-3xl">
-            <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-[#f58213]">
-              Notre savoir-faire
-            </p>
+      <ServiceKnowHow />
 
-            <h2 className="font-heading text-4xl font-bold uppercase leading-[0.95] text-[#071522] sm:text-5xl">
-              Une solution adaptée
-              <span className="block text-[#f58213]">
-                à votre projet.
-              </span>
-            </h2>
+      <ResinAdvantages />
 
-            <p className="mt-6 text-base leading-7 text-zinc-500">
-              Chaque projet est étudié avec attention afin de proposer une
-              solution adaptée à votre habitation et à vos besoins.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-[#071522] px-6 py-20 sm:py-24 lg:py-28">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="mb-4 text-sm font-bold uppercase tracking-[0.2em] text-[#f58213]">
-                Nos réalisations
-              </p>
-
-              <h2 className="font-heading text-4xl font-bold uppercase text-white sm:text-5xl">
-                Découvrez notre travail.
-              </h2>
-            </div>
-
-            <a
-              href="/realisations"
-              className="inline-flex items-center gap-2 text-sm font-bold text-white transition-colors hover:text-[#f58213]"
-            >
-              Toutes nos réalisations
-              <ArrowUpRight className="h-4 w-4" />
-            </a>
-          </div>
-        </div>
-      </section>
+      <ServiceProjects />
     </main>
   );
 }
