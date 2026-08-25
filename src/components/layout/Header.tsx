@@ -5,8 +5,8 @@ import { useState } from "react";
 import Image from "next/image";
 
 const navigation = [
-  { label: "Accueil", href: "#accueil" },
-  { label: "Prestations", href: "#prestations" },
+  { label: "Accueil", href: "/" },
+  { label: "Prestations", href: "prestations" },
   { label: "Réalisations", href: "#realisations" },
   { label: "À propos", href: "#a-propos" },
   { label: "Contact", href: "#contact" },
