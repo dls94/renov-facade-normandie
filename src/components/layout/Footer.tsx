@@ -79,6 +79,14 @@ export function Footer() {
               >
                 ig
               </a>
+
+              <a
+                href="#"
+                aria-label="LinkedIn"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-xs font-bold transition-colors hover:border-[#f58213] hover:bg-[#f58213]"
+              >
+                in
+              </a>
             </div>
 
             <p className="mt-5 max-w-xs text-sm leading-6 text-zinc-500">
