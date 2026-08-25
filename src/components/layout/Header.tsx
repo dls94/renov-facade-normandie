@@ -2,6 +2,7 @@
 
 import { Menu, Phone, X } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 
 const navigation = [
   { label: "Accueil", href: "#accueil" },
@@ -19,11 +20,16 @@ export function Header() {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <a href="#accueil" className="group flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#f58213] text-xl font-black text-white">
-            RF
-          </div>
+          <Image
+            src="/images/logo-renov-facade.png"
+            alt="Renov'Façade Normandie"
+            width={220}
+            height={80}
+            priority
+            className="h-auto w-[220px]"
+          />
 
-          <div className="leading-none">
+          {/* <div className="leading-none">
             <div className="text-lg font-black tracking-tight text-[#071522]">
               RENOV<span className="text-[#f58213]">'</span>FACADE
             </div>
@@ -33,7 +39,7 @@ export function Header() {
             <div className="mt-1 hidden text-[10px] italic text-zinc-500 sm:block">
               Votre spécialiste de la rénovation extérieure
             </div>
-          </div>
+          </div> */}
         </a>
 
         {/* Navigation desktop */}
@@ -65,11 +71,7 @@ export function Header() {
           aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
           className="flex h-11 w-11 items-center justify-center rounded-lg border border-zinc-200 text-[#071522] lg:hidden"
         >
-          {isOpen ? (
-            <X className="h-5 w-5" />
-          ) : (
-            <Menu className="h-5 w-5" />
-          )}
+          {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 

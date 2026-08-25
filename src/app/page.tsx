@@ -2,6 +2,7 @@ import { Header } from "@/components/layout/Header";
 import { Hero } from "@/components/home/Hero";
 import { Services } from "@/components/home/Services";
 import { Projects } from "@/components/home/Projects";
+import { Experience } from "@/components/home/Experience";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         <Hero />
         <Services />
         <Projects />
+        <Experience/>
       </main>
     </div>
   );
