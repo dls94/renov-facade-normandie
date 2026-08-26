@@ -27,7 +27,7 @@ const advantages = [
 
 export function WhyUs() {
   return (
-    <section className="bg-[#071522] px-6 py-20 sm:py-24 lg:py-28">
+    <section className="bg-[#071522] px-6 py-20 sm:py-24 lg:py-24">
       <div className="mx-auto max-w-7xl">
         <div className="grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           {/* Heading */}

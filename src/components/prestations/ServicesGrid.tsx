@@ -34,7 +34,7 @@ const services = [
 
 export function ServicesGrid() {
   return (
-    <section className="bg-white px-6 py-20 sm:py-24 lg:py-28">
+    <section className="bg-white px-6 py-20 sm:py-24 lg:py-24">
       <div className="mx-auto max-w-7xl">
         {/* Introduction */}
         <div className="mb-14 max-w-2xl">

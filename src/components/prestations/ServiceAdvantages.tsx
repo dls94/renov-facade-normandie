@@ -1,32 +1,22 @@
-const advantages = [
-  {
-    number: "01",
-    title: "Un rendu esthétique",
-    description:
-      "Une finition moderne qui permet de personnaliser l'apparence de votre terrasse.",
-  },
-  {
-    number: "02",
-    title: "Une solution durable",
-    description:
-      "Un revêtement conçu pour résister aux usages quotidiens et aux conditions extérieures.",
-  },
-  {
-    number: "03",
-    title: "Une rénovation adaptée",
-    description:
-      "Une solution idéale pour transformer ou rénover une terrasse existante.",
-  },
-  {
-    number: "04",
-    title: "Un entretien simplifié",
-    description: "Une surface pratique au quotidien et facile à entretenir.",
-  },
-];
+type Advantage = {
+  number: string;
+  title: string;
+  description: string;
+};
 
-export function ResinAdvantages() {
+type ServiceAdvantagesProps = {
+  advantages: {
+    title: string;
+    highlight: string;
+    items: readonly Advantage[];
+  };
+};
+
+export function ServiceAdvantages({
+  advantages,
+}: ServiceAdvantagesProps) {
   return (
-    <section className="bg-white px-6 pt-12 pb-20 sm:pt-16 sm:pb-24 lg:pt-16 lg:pb-28">
+    <section className="pt-12 pb-16 sm:pt-16 sm:pb-20 lg:pt-20 lg:pb-24">
       <div className="mx-auto w-full max-w-7xl">
         {/* Titre */}
         <div className="max-w-6xl">
@@ -36,16 +26,15 @@ export function ResinAdvantages() {
           </p>
 
           <h2 className="font-heading text-5xl font-bold uppercase leading-[0.9] tracking-tight text-[#071522] sm:text-6xl">
-            Une terrasse pensée{" "}
-            <span className="text-[#f58213]">pour durer.</span>
+            {advantages.title}{" "}
+            <span className="text-[#f58213]">{advantages.highlight}</span>
           </h2>
         </div>
 
         {/* Grille */}
-        <div className="mx-auto mt-16 w-full max-w-[720px]">
-          {/* Avantages */}
-          <div className="mx-auto grid w-full max-w-[720px] grid-cols-2 border-t border-[#071522]/10">
-            {advantages.map((advantage, index) => (
+        <div className="mx-auto mt-12 w-full max-w-[720px]">
+          <div className="grid w-full grid-cols-2 border-t border-[#071522]/10">
+            {advantages.items.map((advantage, index) => (
               <article
                 key={advantage.number}
                 className={`min-h-[290px] border-b border-[#071522]/10 px-8 py-10 lg:px-10 ${

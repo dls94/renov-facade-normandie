@@ -28,18 +28,6 @@ export function Header() {
             priority
             className="h-auto w-[220px]"
           />
-
-          {/* <div className="leading-none">
-            <div className="text-lg font-black tracking-tight text-[#071522]">
-              RENOV<span className="text-[#f58213]">'</span>FACADE
-            </div>
-            <div className="text-sm font-bold tracking-wide text-[#071522]">
-              NORMANDIE
-            </div>
-            <div className="mt-1 hidden text-[10px] italic text-zinc-500 sm:block">
-              Votre spécialiste de la rénovation extérieure
-            </div>
-          </div> */}
         </a>
 
         {/* Navigation desktop */}
