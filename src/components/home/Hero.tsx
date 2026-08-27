@@ -38,7 +38,7 @@ export function Hero() {
             {/* CTAs */}
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <a
-                href="#contact"
+                href="/contact"
                 className="group inline-flex items-center justify-center gap-2 rounded-full bg-[#f58213] px-6 py-4 font-bold text-white transition-all hover:bg-[#ff982f] hover:shadow-lg"
                 >
                 Demander un devis gratuit

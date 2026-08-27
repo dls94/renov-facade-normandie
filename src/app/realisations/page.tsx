@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import { ProjectsGrid } from "@/components/realisations/ProjectsGrid";
+
+export const metadata: Metadata = {
+  title: "Nos réalisations | Renov'Façade Normandie",
+  description:
+    "Découvrez les réalisations de Renov'Façade Normandie en ravalement de façade, isolation extérieure, terrasses en résine et rénovation extérieure.",
+};
 
 export default function RealisationsPage() {
   return (

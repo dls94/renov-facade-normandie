@@ -1,5 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "À propos | Renov'Façade Normandie",
+  description:
+    "Découvrez Renov'Façade Normandie, son savoir-faire et son approche pour vos projets de rénovation et d'aménagement extérieur en Normandie.",
+};
 
 export default function AProposPage() {
   return (

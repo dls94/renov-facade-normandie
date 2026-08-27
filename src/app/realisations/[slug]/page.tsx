@@ -1,10 +1,30 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { projects } from "@/data/projects";
 
-type ProjectSlug = (typeof projects)[number]["slug"];
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+
+  const project = projects.find(
+    (project) => project.slug === slug,
+  );
+
+  if (!project) {
+    return {};
+  }
+
+  return {
+    title: `${project.title} | Renov'Façade Normandie`,
+    description: `${project.title} à ${project.location} — découvrez cette réalisation de Renov'Façade Normandie.`,
+  };
+}
 
 export default async function ProjectPage({
   params,

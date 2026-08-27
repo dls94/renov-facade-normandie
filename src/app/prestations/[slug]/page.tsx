@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 import { ServiceAdvantages } from "@/components/prestations/ServiceAdvantages";
 import { ServiceProjects } from "@/components/prestations/ServiceProjects";
 import { ServiceKnowHow } from "@/components/prestations/ServicesKnowHow";
@@ -338,6 +339,25 @@ const services = {
 } as const;
 
 type ServiceSlug = keyof typeof services;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+
+  if (!(slug in services)) {
+    return {};
+  }
+
+  const service = services[slug as ServiceSlug];
+
+  return {
+    title: `${service.title} | Renov'Façade Normandie`,
+    description: service.description,
+  };
+}
 
 export default async function ServicePage({
   params,
