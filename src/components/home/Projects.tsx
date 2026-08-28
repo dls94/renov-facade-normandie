@@ -143,7 +143,7 @@ export function Projects() {
           </p>
 
           <a
-            href="#contact"
+            href="/contact"
             className="inline-flex items-center gap-2 text-sm font-bold text-white transition-colors hover:text-[#f58213]"
           >
             Parlons de votre projet

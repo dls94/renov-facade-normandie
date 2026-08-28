@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Contact | Renov'Façade Normandie",
+  description:
+    "Contactez Renov'Façade Normandie pour votre projet de rénovation extérieure, de ravalement de façade, d'isolation, de terrasse en résine ou de gouttières.",
+};
 
 export default function ContactPage() {
   return (

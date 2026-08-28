@@ -120,7 +120,7 @@ export function Services() {
           </div>
 
           <a
-            href="#contact"
+            href="/contact"
             className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-[#071522] px-6 py-3.5 text-sm font-bold text-white transition-colors hover:bg-[#102536]"
           >
             Demander un devis
