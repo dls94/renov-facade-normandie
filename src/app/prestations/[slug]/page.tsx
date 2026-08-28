@@ -237,7 +237,7 @@ const services = {
 
     projects: [
       {
-        image: "/images/terrasse-resine.webp",
+        image: "/images/terrasse-resine-apres.webp",
         title: "Terrasse en résine",
         location: "Rouen",
       },

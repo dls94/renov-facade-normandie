@@ -1,13 +1,52 @@
-import type { Metadata } from "next";
+"use client";
+import { useState } from "react";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 
-export const metadata: Metadata = {
-  title: "Contact | Renov'Façade Normandie",
-  description:
-    "Contactez Renov'Façade Normandie pour votre projet de rénovation extérieure, de ravalement de façade, d'isolation, de terrasse en résine ou de gouttières.",
-};
-
 export default function ContactPage() {
+  const [isSending, setIsSending] = useState(false);
+  const [status, setStatus] = useState("");
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    setIsSending(true);
+    setStatus("");
+
+    try {
+      const formData = new FormData(event.currentTarget);
+      const form = event.currentTarget;
+
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.get("name"),
+          phone: formData.get("phone"),
+          email: formData.get("email"),
+          project: formData.get("project"),
+          message: formData.get("message"),
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok || !data.success) {
+        setStatus(data.message || "Une erreur est survenue lors de l'envoi.");
+        return;
+      }
+
+      setStatus("Votre demande a bien été envoyée.");
+      form.reset();
+    } catch (error) {
+      console.error("Erreur lors de l'envoi :", error);
+      setStatus("Impossible d'envoyer votre demande. Réessayez.");
+    } finally {
+      setIsSending(false);
+    }
+  }
+
   return (
     <main>
       {/* Hero */}
@@ -21,9 +60,7 @@ export default function ContactPage() {
 
             <h1 className="font-heading text-5xl font-bold uppercase leading-[0.92] tracking-tight text-white sm:text-6xl lg:text-8xl">
               Parlons de
-              <span className="block text-[#f58213]">
-                votre projet.
-              </span>
+              <span className="block text-[#f58213]">votre projet.</span>
             </h1>
 
             <p className="mt-8 max-w-2xl text-base leading-7 text-zinc-400 sm:text-lg">
@@ -45,9 +82,7 @@ export default function ContactPage() {
 
             <h2 className="mt-4 font-heading text-4xl font-bold uppercase leading-[0.95] text-[#071522] sm:text-5xl">
               Un projet ?
-              <span className="block text-[#f58213]">
-                Échangeons.
-              </span>
+              <span className="block text-[#f58213]">Échangeons.</span>
             </h2>
 
             <div className="mt-10 space-y-7">
@@ -105,7 +140,10 @@ export default function ContactPage() {
           </div>
 
           {/* Formulaire */}
-          <form className="border-t border-[#071522]/10 pt-8">
+          <form
+            onSubmit={handleSubmit}
+            className="border-t border-[#071522]/10 pt-8"
+          >
             <div className="grid gap-6 sm:grid-cols-2">
               <div>
                 <label
@@ -176,18 +214,10 @@ export default function ContactPage() {
                 <option value="" disabled>
                   Sélectionnez une prestation
                 </option>
-                <option value="ravalement">
-                  Ravalement de façade
-                </option>
-                <option value="isolation">
-                  Isolation extérieure
-                </option>
-                <option value="resine">
-                  Terrasse en résine
-                </option>
-                <option value="gouttieres">
-                  Gouttières
-                </option>
+                <option value="ravalement">Ravalement de façade</option>
+                <option value="isolation">Isolation extérieure</option>
+                <option value="resine">Terrasse en résine</option>
+                <option value="gouttieres">Gouttières</option>
               </select>
             </div>
 
@@ -210,11 +240,17 @@ export default function ContactPage() {
 
             <button
               type="submit"
+              disabled={isSending}
               className="mt-8 inline-flex items-center gap-3 bg-[#f58213] px-6 py-4 text-sm font-bold uppercase tracking-wide text-white transition-colors hover:bg-[#d96f08]"
             >
-              Envoyer ma demande
+              {isSending ? "Envoi en cours..." : "Envoyer ma demande"}
               <ArrowUpRight className="h-4 w-4" />
             </button>
+            {status && (
+              <p className="mt-4 text-sm font-medium text-[#071522]">
+                {status}
+              </p>
+            )}
           </form>
         </div>
       </section>
