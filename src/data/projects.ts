@@ -1,6 +1,6 @@
 export const projects = [
   {
-    image: "/images/terrasse-resine.webp",
+    image: "/images/projects/terrasse-resine-apres.webp",
     beforeImage: "/images/projects/terrasse-resine-avant.webp",
     afterImage: "/images/projects/terrasse-resine-apres.webp",
 
