@@ -39,7 +39,7 @@ export function Contact() {
               </a>
 
               <a
-                href="mailto:contact@renovfacade-normandie.fr"
+                href="/contact"
                 className="inline-flex h-14 items-center justify-center gap-2 rounded-full bg-[#f58213] px-6 font-bold text-white transition-colors hover:bg-white hover:text-[#071522]"
               >
                 Demander un devis
